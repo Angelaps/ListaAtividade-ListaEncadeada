@@ -30,17 +30,17 @@ public class ListaEncadeada {
 		}
 	}
 
-	private Celula recuperarPenultimo(Celula celula) {
-		if (celula.getProximo().equals(ultimo)) {
-			return celula;
+	private Celula recuperarPenultimo(Celula _celula) {
+		if (_celula.getProximo().equals(ultimo)) {
+			return _celula;
 		}
-		return recuperarPenultimo(celula.getProximo());
+		return recuperarPenultimo(_celula.getProximo());
 	}
-	
+
 	public int verificarTamanho() {
 		verificaTamanho = 0;
 		Celula celula = primeiro;
-		while(celula != null) {
+		while (celula != null) {
 			verificaTamanho++;
 			celula = celula.getProximo();
 		}
@@ -50,20 +50,20 @@ public class ListaEncadeada {
 	public boolean temProximo() {
 		if (primeiro == null) {
 			return false;
-		} else if (posicaoAtual == null) {
-			posicaoAtual = primeiro;
+		} else if (getPosicaoAtual() == null) {
+			setPosicaoAtual(primeiro);
 			verificaTamanho++;
 			return true;
 		} else {
-			boolean temProximo = posicaoAtual.getProximo() != null ? true : false;
-			posicaoAtual = posicaoAtual.getProximo();
+			boolean temProximo = getPosicaoAtual().getProximo() != null ? true : false;
+			setPosicaoAtual(posicaoAtual.getProximo());
 			verificaTamanho++;
 			return temProximo;
 		}
 	}
-	
+
 	public void apagarLista() {
-		while(temProximo() == true) {
+		while (temProximo() == true) {
 			remover();
 		}
 	}
@@ -72,16 +72,17 @@ public class ListaEncadeada {
 		return posicaoAtual;
 	}
 
+	public void setPosicaoAtual(Celula posicaoAtual) {
+		this.posicaoAtual = posicaoAtual;
+	}
+
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("[ ");
-		
-		Celula celula = primeiro;
-		
-		while(celula != null) {
+
+		for (Celula celula = primeiro; celula != null; celula = celula.getProximo()) {
 			sb.append(celula.getValor() + " ");
-			celula = celula.getProximo();
 		}
 		sb.append("]");
 		return sb.toString();
