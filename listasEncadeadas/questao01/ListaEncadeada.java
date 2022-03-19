@@ -30,12 +30,18 @@ public class ListaEncadeada {
 		}
 	}
 
+	
+	//TAMBEM É A RESOLUÇÃO DA QUESTÃO QUATRO, ONDE PRECISA
+	//DE UM METODO DE BUSCA RECURSIVO!!!!!
 	private Celula recuperarPenultimo(Celula _celula) {
 		if (_celula.getProximo().equals(ultimo)) {
 			return _celula;
 		}
 		return recuperarPenultimo(_celula.getProximo());
 	}
+	//----------------------------------------------------
+	//----------------------------------------------------
+	
 
 	public int verificarTamanho() {
 		verificaTamanho = 0;
