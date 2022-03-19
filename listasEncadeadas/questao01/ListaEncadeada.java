@@ -31,7 +31,7 @@ public class ListaEncadeada {
 	}
 
 	
-	//TAMBEM … A RESOLU«√O DA QUEST√O QUATRO, ONDE PRECISA
+	//TAMBEM √â A RESOLU√á√ÉO DA QUEST√ÉO QUATRO, ONDE PRECISA
 	//DE UM METODO DE BUSCA RECURSIVO!!!!!
 	private Celula recuperarPenultimo(Celula _celula) {
 		if (_celula.getProximo().equals(ultimo)) {
@@ -58,12 +58,10 @@ public class ListaEncadeada {
 			return false;
 		} else if (getPosicaoAtual() == null) {
 			setPosicaoAtual(primeiro);
-			verificaTamanho++;
 			return true;
 		} else {
 			boolean temProximo = getPosicaoAtual().getProximo() != null ? true : false;
 			setPosicaoAtual(posicaoAtual.getProximo());
-			verificaTamanho++;
 			return temProximo;
 		}
 	}
